@@ -4,7 +4,6 @@ import os
 TASK_FILE = ".tasks.txt"
 
 def add_task(task):
-    task = input("What is your task?")
     with open(TASK_FILE, "a", encoding="utf-8") as file:
         file.write(task+"\n")
         return
