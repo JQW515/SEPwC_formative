@@ -15,17 +15,30 @@ def list_tasks():
     
     with open(TASK_FILE, "r", encoding="utf-8") as file:
         tasks = file.readlines()
-        counter = 1
-        output_string = ""
-        for task in tasks:
-            output_string = output_string + str(counter) + ". "+task
-            counter = counter + 1
-            
+    
+    output_string = ""
+    for i, task in enumerate(tasks, start=1):
+        output_string += f"{i}. {task.strip()}\n"
+        
     return output_string
 
 
 def remove_task(index):
-    return
+    with open(TASK_FILE, "r", encoding="utf-8") as file:
+        tasks = file.readlines()
+        if len(tasks) == 0:
+            print("This list is empty!")
+            return
+        else:
+            index = index - 1
+            tasks.pop(index)
+            with open(TASK_FILE, "w" , encoding="utf-8") as file:
+                file.writelines(tasks)
+                return
+    
+            print (tasks)
+            return            
+  
 
 def main():
     parser = argparse.ArgumentParser(description="Command-line Todo List")
