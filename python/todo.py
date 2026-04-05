@@ -1,3 +1,4 @@
+"""A simple command-line todo list manager."""
 import argparse
 import os
 
