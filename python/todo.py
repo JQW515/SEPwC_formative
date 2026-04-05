@@ -4,15 +4,15 @@ import os
 TASK_FILE = ".tasks.txt"
 
 def add_task(task):
+    """Add a task to the todo list."""
     with open(TASK_FILE, "a", encoding="utf-8") as file:
         file.write(task+"\n")
-        print("You added ",task,"to your to-do list")
-        return
+        
     
     
 
 def list_tasks():
-    
+    """List all tasks to user"""
     with open(TASK_FILE, "r", encoding="utf-8") as file:
         tasks = file.readlines()
     
@@ -24,6 +24,7 @@ def list_tasks():
 
 
 def remove_task(index):
+    """Remove task from to-do list"""
     with open(TASK_FILE, "r", encoding="utf-8") as file:
         tasks = file.readlines()
         if len(tasks) == 0:
