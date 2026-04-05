@@ -6,6 +6,7 @@ TASK_FILE = ".tasks.txt"
 def add_task(task):
     with open(TASK_FILE, "a", encoding="utf-8") as file:
         file.write(task+"\n")
+        print("You added ",task,"to your to-do list")
         return
     
     
