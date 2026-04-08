@@ -21,7 +21,7 @@ def list_tasks():
     for i, task in enumerate(tasks, start=1):
         output_string += f"{i}. {task.strip()}\n"
         
-    return output_string
+    return output_string.rstrip("\n")
 
 
 def remove_task(index):
