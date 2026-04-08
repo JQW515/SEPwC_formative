@@ -31,6 +31,9 @@ def remove_task(index):
         if len(tasks) == 0:
             print("This list is empty!")
             return
+        elif index < 1 or index > len(tasks):
+            print ("Invalid task number!")
+            return
         else:
             index = index - 1
             tasks.pop(index)
