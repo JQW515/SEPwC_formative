@@ -25,25 +25,18 @@ def list_tasks():
 
 
 def remove_task(index):
-    """Remove task from to-do list"""
+    """Remove a task from the todo list by index."""
     with open(TASK_FILE, "r", encoding="utf-8") as file:
         tasks = file.readlines()
-        if len(tasks) == 0:
-            print("This list is empty!")
-            return
-        elif index < 1 or index > len(tasks):
-            print ("Invalid task number!")
-            return
-        else:
-            index = index - 1
-            tasks.pop(index)
-            with open(TASK_FILE, "w" , encoding="utf-8") as file:
-                file.writelines(tasks)
-                return
-    
-            print (tasks)
-            return            
-  
+    if len(tasks) == 0:
+        print("This list is empty!")
+        return
+    if index < 1 or index > len(tasks):
+        print("Invalid task number!")
+        return
+    tasks.pop(index - 1)
+    with open(TASK_FILE, "w", encoding="utf-8") as file:
+        file.writelines(tasks)
 
 def main():
     parser = argparse.ArgumentParser(description="Command-line Todo List")
